@@ -93,7 +93,7 @@ class Test_Quest(unittest.TestCase):
     def test_crypt(self):
         key = RSA.importKey(PRIVATE_KEY)
         for username in ['chris', 'bob', 'mary-joe add']:
-            enc_data = main.UploadHandler.crypt(username)
+            enc_data = main.UploadHandler.crypt(username, PRIVATE_KEY)
             decrypted = key.decrypt(enc_data.decode('base64'))
             self.assertEqual(username, decrypted)
 
